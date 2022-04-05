@@ -11,22 +11,28 @@ car::car(colour carColour, model carModel, string regiNumber)
     this->carModel = carModel;
     this->registrationNumber = regiNumber;
     doors = new bool[carModel.numberOfDoors];
+    for (int i = 0; i < carModel.numberOfDoors; ++i)
+    {
+        doors[i] = 1;
+    }
 }
 
 car::~car()
 {
     cout << "Deconstructing car object" << endl;
-    delete doors;
+    delete[] doors;
 }
 
 void car::openDoor(int doorNum) // todo add in error checking
 {
-    doors[doorNum - 1] = 1;
+    --doorNum;
+    doors[doorNum] = true;
 }
 
 void car::closeDoor(int doorNum) // todo add in error checking
 {
-    doors[doorNum - 1] = 0;
+    --doorNum;
+    doors[doorNum] = false;
 }
 
 string car::doorStatus()
@@ -35,7 +41,9 @@ string car::doorStatus()
     string str = "";
     for (int i = 0; i < numOfDoors; ++i)
     {
-        str += "Door " + std::to_string(i + 1) + " is " + (doors[i - 1] ? "Open" : "Closed") + " \n";
+        str += "Door " + std::to_string(i + 1) + " is ";
+        str += (doors[i] ? "Open" : "Closed");
+        str += +" \n";
     }
     return str;
 }
@@ -53,7 +61,8 @@ void car::closeBoot()
 string car::bootStatus()
 {
     string str = "";
-    str += "The boot is " + (boot) ? "open" : "closed";
+    str += "The boot is ";
+    str += (boot) ? "open" : "closed";
     return str;
 }
 

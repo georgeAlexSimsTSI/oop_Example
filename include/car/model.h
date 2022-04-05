@@ -1,4 +1,5 @@
-
+#ifndef MODEL_H
+#define MODEL_H
 #include <string>
 using std::string;
 
@@ -14,3 +15,5 @@ public: // will do getters + setters later
     int numberOfWheels;
     int numberOfSeats;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef DOG_H
+#define DOG_H
+
 #include "colour.h"
 #include "model.h"
 
@@ -33,3 +36,5 @@ public:
     void unlockCar();
     string lockStatus();
 };
+
+#endif
