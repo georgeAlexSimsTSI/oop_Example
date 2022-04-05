@@ -2,7 +2,7 @@
 #include "../include/car/car.h"
 #include "../include/dog/cat.h"
 #include "../include/dog/dog.h"
-
+#include "../include/variadicAdder/variadicAdder.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -59,7 +59,13 @@ int main()
     cat1->bark();
     cout << cat1->getName() << endl;
 
-    delete cat1;
+    cout << endl
+         << "Var args test: " << endl
+         << endl;
 
+    cout << variadicAdder(9, 1, 2, 3, 4, 5, 6, 7, 8, 9) << endl;
+    cout << variadicAdder(3, 1, 10, 1124) << endl;
+
+    delete cat1;
     return 0;
 }
