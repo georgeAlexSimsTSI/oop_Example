@@ -2,7 +2,7 @@
 #ifndef CAT_H
 #define CAT_H
 
-class cat : public dog
+class cat final : public dog // final prevents further inheritance
 {
     bool thumbs;
 
